@@ -10,9 +10,9 @@
 <header>
     <div class="wrapper">
         <nav>
-            <a href="incdex.php">Home</a>
-            <a href="tasks/create.php"></a>
-            <a href="tasks/overvieuw.php">Overvieuw</a>
+            <a href="index.php">Home</a>
+            <a href="create.php">Create</a>
+            <a href="overview.php">Overview</a>
         </nav>
     </div>
 </header>
