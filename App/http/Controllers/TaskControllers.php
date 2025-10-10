@@ -39,5 +39,5 @@ if(isset($errors))
     die();
 }
 
-echo $id . " / " . $titel. " / " . $beschrijving
+echo $id . " / " . $titel. " / " . $beschrijving;
 ?>

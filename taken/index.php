@@ -6,7 +6,12 @@
     <?php require_once 'head.php'; ?>
 </head>
 
+<header>
+   
+</header>
+
 <body>
+    <?php require_once 'head.php'; ?>
     
     <div class="container">
       
