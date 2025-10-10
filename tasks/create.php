@@ -3,7 +3,7 @@
 
 <head>
     <title></title>
-    <?php require_once 'head.php'; ?>
+    <?php require_once '../head.php'; ?>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -18,8 +18,6 @@
 </header>
 
 <body>
-    <?php require_once 'head.php'; ?>
-
     <form action="backend/taskControllers.php" method="POST">
 
     <div class="form-group">
@@ -28,9 +26,15 @@
     </div>
 
      <div class="form-group">
-        <label for="beschrijving">title</label>
-        <input type="text" name="title">
+        <label for="description">description</label>
+        <textarea name="description"></textarea>
     </div>
+
+    <div class="form-group">
+        <label for="department">department</label>
+        <input type="text" name="department">
+    </div>
+    
     
     </form>
     
