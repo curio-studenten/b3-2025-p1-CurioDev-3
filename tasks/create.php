@@ -28,7 +28,7 @@
     </div>
 
      <div class="form-group">
-        <label for="title">title</label>
+        <label for="beschrijving">title</label>
         <input type="text" name="title">
     </div>
     
