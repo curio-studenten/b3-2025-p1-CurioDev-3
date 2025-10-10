@@ -1,4 +1,8 @@
 <?php
+
+$action = $_POST['action'];
+if($action == "edit"){
+
 $id = $_POST['id'];
 $titel = $_POST['titel'];
 $beschrijving= $_POST['beschrijving'];
@@ -39,5 +43,10 @@ if(isset($errors))
     die();
 }
 
-echo $id . " / " . $titel. " / " . $beschrijving;
+  require_once 'backend/conn.php';
+
+  $query = "INSERT INTO taken (id, titel, beschrijving, afdeling, status, deadline, users, created_at) VALUES (:id, :titel, :beschrijving, :afdeling, :status :deadline, :users, :created_at)"
+
+  $statement = $conn->prepare($query);
+}
 ?>
