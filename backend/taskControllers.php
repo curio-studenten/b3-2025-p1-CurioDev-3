@@ -1,7 +1,7 @@
 <?php
 
 $action = $_POST['action'];
-if($action == "edit"){
+if($action == "insert"){
 
 $id = $_POST['id'];
 $titel = $_POST['titel'];
@@ -45,8 +45,21 @@ if(isset($errors))
 
   require_once 'backend/conn.php';
 
-  $query = "INSERT INTO taken (id, titel, beschrijving, afdeling, status, deadline, users, created_at) VALUES (:id, :titel, :beschrijving, :afdeling, :status :deadline, :users, :created_at)"
+  $query = "INSERT INTO taken (id, titel, beschrijving, afdeling, status, deadline, users, created_at) VALUES (:id, :titel, :beschrijving, :afdeling, :status :deadline, :users, :created_at)";
 
   $statement = $conn->prepare($query);
+
+     $statement->execute([
+         ":id" => $id,
+         ":title" => $titel,
+          ":beschrijving" => $beschrijving,
+         ":afdeling" => $afdeling,
+         ":status" => $status,
+         ":deadline" => $deadline,
+         ":users" => $user,
+         "created_at" => $created_at
+    ]);
+
+    header("location: ../index.php?msg=Meldingopgeslagen ");
 }
 ?>
