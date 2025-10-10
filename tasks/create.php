@@ -19,6 +19,13 @@
 
 <body>
     <?php require_once 'head.php'; ?>
+
+    <form action="backend/taskControllers.php" method="POST">
+
+    <div class="form-group">
+        <input type="text" name="title">
+    </div>
+    </form>
     
 </body>
 
