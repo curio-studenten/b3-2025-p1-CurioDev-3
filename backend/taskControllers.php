@@ -14,27 +14,27 @@ $created_at = $_POST['created_at'];
 
 $title=$_POST['title'];
 if(empty($titel)){
-    $errors[]="Vul de titel in.";
+    $errors[]="title cannot be empty";
 }
 
 $description=$_POST['description'];
 if(empty($beschrijving)){
-    $errors[]="Vul de beschrijving in.";
+    $errors[]="description cannot be empty";
 }
 
 $department=$_POST['department'];
 if(empty($afdeling)){
-    $errors[]="Vul de afdeling in.";
+    $errors[]="department cannot be empty";
 }
 
 $status=$_POST['status'];
 if(empty($status)){
-    $errors[]="Vul de status in.";
+    $errors[]="status cannot be empty";
 }
 
 $user=$_POST['user'];
 if(empty($user)){
-    $errors[]="Vul de user in.";
+    $errors[]="user cannot be empty.";
 }
 
 if(isset($errors))
