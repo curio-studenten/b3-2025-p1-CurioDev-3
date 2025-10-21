@@ -26,15 +26,34 @@
     </div>
 
      <div class="form-group">
-        <label for="description">description</label>
-        <textarea name="description"></textarea>
+        <label for="user">user</label>
+        <input type="text" name="user">
     </div>
 
     <div class="form-group">
+        <label for="created_at">created at</label>
+        <input type="datetime-local" name="created_at">
+    </div>
+
+     <div class="form-group">
         <label for="department">department</label>
         <input type="text" name="department">
     </div>
+
+     <div class="form-group">
+        <label for="description">description</label>
+        <textarea name="description"></textarea>
+    </div>
     
+     <div class="form-group">
+        <label for="status">status</label>
+        <input type="text" name="status">
+    </div>
+
+     <div class="form-group">
+        <label for="deadline">deadline</label>
+        <input type="date" name="deadline">
+    </div>
     
     </form>
     
