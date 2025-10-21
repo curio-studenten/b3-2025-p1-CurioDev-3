@@ -10,8 +10,7 @@
     <div class="wrapper">
         <nav>
             <a href="index.php">Home</a>
-            <a href="tasks/create.php">Create</a>
-            <a href="tasks/overview.php">Overview</a>
+            <a href="tasks/index.php">Takenoverzicht</a>
         </nav>
     </div>
 </header>
