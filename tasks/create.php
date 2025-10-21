@@ -18,11 +18,11 @@
 </header>
 
 <body>
-    <form action="backend/taskControllers.php" method="POST">
-
+    <form action="../backend/taskControllers.php" method="POST">
+    <input type="hidden" name="action" value="insert">
     <div class="form-group">
-        <label for="title">title</label>
-        <input type="text" name="title">
+        <label for="titel">title</label>
+        <input type="text" name="titel">
     </div>
 
      <div class="form-group">
@@ -36,13 +36,13 @@
     </div>
 
      <div class="form-group">
-        <label for="department">department</label>
-        <input type="text" name="department">
+        <label for="afdeling">department</label>
+        <input type="text" name="afdeling">
     </div>
 
      <div class="form-group">
-        <label for="description">description</label>
-        <textarea name="description"></textarea>
+        <label for="beschrijving">description</label>
+        <textarea name="beschrijving"></textarea>
     </div>
     
      <div class="form-group">
@@ -55,6 +55,10 @@
         <input type="date" name="deadline">
     </div>
     
+    <div class="form-group">
+       
+        <input type="submit" value="submit">
+    </div>
     </form>
     
 </body>
