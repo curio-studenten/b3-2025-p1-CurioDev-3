@@ -9,9 +9,8 @@
   <header>
     <div class="wrapper">
         <nav>
-            <a href="index.php">Home</a>
-            <a href="create.php">Create</a>
-            <a href="overview.php">Overview</a>
+            <a href="../index.php">Home</a>
+            <a href="index.php">Takenoverzicht</a>
         </nav>
     </div>
 </header>
