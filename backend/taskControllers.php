@@ -67,5 +67,22 @@ if(isset($errors))
 
 
 //delete query
+if ($action == "delete") {
+    $id = $_POST['id'] ?? null;
+
+    if (empty($id)) {
+        // geen id opgegeven
+        die("Geen id opgegeven om te verwijderen.");
+    }
+
+    require_once 'backend/conn.php';
+
+    $query = "DELETE FROM taken WHERE id = :id";
+    $statement = $conn->prepare($query);
+    $statement->execute([":id" => $id]);
+
+    header("Location: ../index.php?msg=Verwijderd");
+    exit;
+}
 ?>
 
