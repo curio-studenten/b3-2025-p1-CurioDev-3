@@ -16,8 +16,44 @@
 </header>
 
 <body>
-     <a href="../tasks/create.php">Create</a>
-     <a href="../tasks/done.php">Done</a>
     
+    <a href="../tasks/done.php">Done</a>
+      <?php 
+        require_once '../backend/conn.php';
+
+        $query = "SELECT * FROM taken ";
+
+        $statement = $conn->prepare($query);
+        $statement->execute();
+        $taken = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+        ?> 
+        <table>
+            <tr>
+
+                <th>Titel</th>
+                <th>Description</th>
+                <th>Department</th>
+                <th>Status</th>
+                <th>deadline</th>
+                <th>user</th>
+                <th>Time of creation</th>
+            </tr>
+            <?php foreach($taken as $taak):   ?>
+                <tr>
+
+            <td> <?php echo $taak['titel']; ?></td>
+            <td> <?php echo $taak['beschrijving']; ?></td>
+            <td> <?php echo $taak['afdeling']; ?></td>
+            <td> <?php echo $taak['status']; ?></td>
+            <td> <?php echo $taak['deadline']; ?></td>
+            <td> <?php echo $taak['user']; ?></td>
+            <td> <?php echo $taak['created_at']; ?></td>
+
+            <td><a href="../tasks/update.php?id=<?php echo $taak['id']; ?>">Update</a></td>
+            </tr>
+            <?php endforeach; ?>
+        </table>
+        <a href="../tasks/create.php">Create</a>
 </body>
 </html>

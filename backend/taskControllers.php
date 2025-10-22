@@ -70,6 +70,87 @@ if(!empty($errors)){
 
 //update query
 
+$action = $_POST['action'];
+if($action == "edit")
+{
+    
+    $titel = $_POST['titel'];
+    $beschrijving= $_POST['beschrijving'];
+    $afdeling = $_POST['afdeling'];
+    $status= $_POST['status'];
+    $deadline = $_POST['deadline'];
+    $user = $_POST['user'];
+    $created_at = $_POST['created_at'];
+
+    
+    //Haal variabelen op, doe inputvalidatie
+
+    $titel=$_POST['titel'];
+    if(empty($titel)){
+        $errors[]="title cannot be empty";
+    }
+
+    $beschrijving=$_POST['beschrijving'];
+    if(empty($beschrijving)){
+        $errors[]="description cannot be empty";
+    }
+
+    $afdeling=$_POST['afdeling'];
+    if(empty($afdeling)){
+        $errors[]="department cannot be empty";
+    }
+
+    $status=$_POST['status'];
+    if(empty($status)){
+        $errors[]="status cannot be empty";
+    }
+
+    $user=$_POST['user'];
+    if(!is_numeric($user)){
+        $errors[]="user has to have an numeric value.";
+    }
+
+    if(isset($errors))
+    {
+        var_dump($errors);
+        die();
+    }
+
+    if(!empty($errors)){
+        var_dump($errors);
+        die();
+    }
+   
+
+    //1. Haal de verbinding erbij
+    require_once '../backend/conn.php';
+
+    //2. Schrijf query met placeholders
+    $query = "UPDATE taken SET titel = :titel, beschrijving = :beschrijving, afdeling = :afdeling, satus = :status, deadline = :deadline, user = :user, created_at = :created_at WHERE id = :id";
+    
+    //3. Zet query om naar statement
+    $statement = $conn->prepare($query);
+
+    //4. Voer statement uit, geef nu waarden mee voor de placeholders
+    $statement->execute([
+        ":titel" => $titel,
+        ":beschrijving" => $beschrijving,
+         ":afdeling" => $afdeling,
+         ":status" => $status,
+         ":deadline" => $deadline,
+         ":user" => $user,
+         ":created_at" => $created_at,
+         ":id" => $id
+    ]);
+
+    //5. Niet van toepassing bij een UPDATE-query
+
+    //Stuur gebruiker terug naar lijst met berichten (index.php in hoofdmap)
+    //...
+    header("location: ../index.php?msg=Meldingopgeslagen");
+    exit();
+}
+
 
 //delete query
 if ($action == "delete") {
