@@ -4,7 +4,7 @@ $action = $_POST['action']?? null;
 if($action == "insert")
 {
 
-$id = $_POST['id'];
+
 $titel = $_POST['titel'];
 $beschrijving= $_POST['beschrijving'];
 $afdeling = $_POST['afdeling'];
@@ -34,12 +34,17 @@ if(empty($status)){
 }
 
 $user=$_POST['user'];
-if(empty($user)){
-    $errors[]="user cannot be empty.";
+if(!is_numeric($user)){
+    $errors[]="user has to have an numeric value.";
 }
 
 if(isset($errors))
 {
+    var_dump($errors);
+    die();
+}
+
+if(!empty($errors)){
     var_dump($errors);
     die();
 }
