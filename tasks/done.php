@@ -8,5 +8,14 @@
 <body>
     <a href="index.php">home</a>
     <h1>Hier is komen de tasks die DONE zijn.</h1>
+    <?php 
+        require_once '../backend/conn.php';
+
+        $query = "SELECT status FROM taken where status = 'done' ";
+
+        $statement = $conn->prepare($query);
+        $statement->execute();
+        $meldingen = $statement->fetchAll(PDO::FETCH_ASSOC);
+    ?>
 </body>
 </html>
