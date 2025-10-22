@@ -147,7 +147,7 @@ if($action == "edit")
 
     //Stuur gebruiker terug naar lijst met berichten (index.php in hoofdmap)
     //...
-    header("location: ../index.php?msg=Meldingopgeslagen");
+    header("location: ../index.php?Taak=opgeslagen");
     exit();
 }
 
@@ -167,7 +167,7 @@ if ($action == "delete") {
     $statement = $conn->prepare($query);
     $statement->execute([":id" => $id]);
 
-    header("Location: ../index.php?msg=Verwijderd");
+    header("Location: ../index.php?Taak=Verwijderd");
     exit;
 }
 ?>
