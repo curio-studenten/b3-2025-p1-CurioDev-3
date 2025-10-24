@@ -8,15 +8,6 @@
         <?php require_once '../head.php'; ?>
 </head>
 
-<header>
-    <div class="wrapper">
-        <nav>
-            <a href="index.php">Takenoverzicht</a>
-            <a href="../home.php">Home</a>
-        </nav>
-    </div>
-</header>
-
 <body>
     <form action="../backend/taskControllers.php" method="POST">
     <input type="hidden" name="action" value="insert">
