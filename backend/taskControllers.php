@@ -109,7 +109,7 @@ if ($action == "delete") {
         die("Geen id opgegeven om te verwijderen.");
     }
 
-    require_once 'backend/conn.php';
+    require_once 'conn.php';
 
     $query = "DELETE FROM taken WHERE id = :id";
     $statement = $conn->prepare($query);
