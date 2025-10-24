@@ -59,13 +59,14 @@ if(!empty($errors)){
          ":deadline" => $deadline,
     ]);
 
-    header("location: ../index.php?msg=Meldingopgeslagen ");
+    header("location: ../tasks/index.php");
+    exit();
 }
 
 //update query
 
 $action = $_POST['action'];
-if($action == "edit")
+if($action == "update")
 {
     
     $titel = $_POST['titel'];
@@ -73,53 +74,17 @@ if($action == "edit")
     $afdeling = $_POST['afdeling'];
     $status= $_POST['status'];
     $deadline = $_POST['deadline'];
-
+    $id = $_POST['id'];
     
-    //Haal variabelen op, doe inputvalidatie
-
-    $titel=$_POST['titel'];
-    if(empty($titel)){
-        $errors[]="title cannot be empty";
-    }
-
-    $beschrijving=$_POST['beschrijving'];
-    if(empty($beschrijving)){
-        $errors[]="description cannot be empty";
-    }
-
-    $afdeling=$_POST['afdeling'];
-    if(empty($afdeling)){
-        $errors[]="department cannot be empty";
-    }
-
-    $status=$_POST['status'];
-    if(empty($status)){
-        $errors[]="status cannot be empty";
-    }
-
-
-    if(isset($errors))
-    {
-        var_dump($errors);
-        die();
-    }
-
-    if(!empty($errors)){
-        var_dump($errors);
-        die();
-    }
    
 
-    //1. Haal de verbinding erbij
     require_once '../backend/conn.php';
 
-    //2. Schrijf query met placeholders
-    $query = "UPDATE taken SET titel = :titel, beschrijving = :beschrijving, afdeling = :afdeling, status = :status, deadline = :deadline, WHERE id = :id";
+    $query = "UPDATE taken SET titel = :titel, beschrijving = :beschrijving, afdeling = :afdeling, status = :status, deadline = :deadline WHERE id = :id";
     
-    //3. Zet query om naar statement
     $statement = $conn->prepare($query);
 
-    //4. Voer statement uit, geef nu waarden mee voor de placeholders
+
     $statement->execute([
         ":titel" => $titel,
         ":beschrijving" => $beschrijving,
@@ -129,11 +94,9 @@ if($action == "edit")
          ":id" => $id
     ]);
 
-    //5. Niet van toepassing bij een UPDATE-query
 
-    //Stuur gebruiker terug naar lijst met berichten (index.php in hoofdmap)
-    //...
-    header("location: ../index.php?taak=opgeslagen");
+
+    header("location: ../tasks/index.php");
     exit();
 }
 
@@ -143,7 +106,6 @@ if ($action == "delete") {
     $id = $_POST['id'] ?? null;
 
     if (empty($id)) {
-        // geen id opgegeven
         die("Geen id opgegeven om te verwijderen.");
     }
 
@@ -153,7 +115,7 @@ if ($action == "delete") {
     $statement = $conn->prepare($query);
     $statement->execute([":id" => $id]);
 
-    header("Location: ../index.php?Taak=Verwijderd");
+    header("location: ../tasks/index.php");
     exit;
 }
 ?>
