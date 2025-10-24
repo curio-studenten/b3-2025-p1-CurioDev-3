@@ -9,7 +9,6 @@
 <header>
     <div class="wrapper">
         <nav>
-            <a href="../index.php">Home</a>
             <a href="index.php">Takenoverzicht</a>
         </nav>
     </div>
@@ -17,7 +16,7 @@
 
 <body>
     
-    <a href="../tasks/done.php">Done</a>
+    
       <?php 
         require_once '../backend/conn.php';
 
@@ -36,8 +35,9 @@
                 <th>Department</th>
                 <th>Status</th>
                 <th>deadline</th>
-                <th>user</th>
-                <th>Time of creation</th>
+                <th>Update</th>
+                <th>Delete</th>
+
             </tr>
             <?php foreach($taken as $taak):   ?>
                 <tr>
@@ -47,13 +47,14 @@
             <td> <?php echo $taak['afdeling']; ?></td>
             <td> <?php echo $taak['status']; ?></td>
             <td> <?php echo $taak['deadline']; ?></td>
-            <td> <?php echo $taak['user']; ?></td>
-            <td> <?php echo $taak['created_at']; ?></td>
-
             <td><a href="../tasks/update.php?id=<?php echo $taak['id']; ?>">Update</a></td>
+            <td><a href="../tasks/delete.php?id=<?php echo $taak['id']; ?>">delete</a></td>
+
+           
             </tr>
             <?php endforeach; ?>
         </table>
+        <a href="../tasks/done.php">Done</a>
         <a href="../tasks/create.php">Create</a>
 </body>
 </html>

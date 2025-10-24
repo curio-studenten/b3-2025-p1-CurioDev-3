@@ -288,3 +288,29 @@ label{
   }
 }
 
+body{
+  padding:20px;
+    width:80%;
+  margin: 0 auto;
+}
+table{
+  width:100%;
+  text-align: left;
+}
+
+th {
+  background-color: #213bd0;
+  color: white;
+}
+
+td{
+  background-color: #4f547096;
+  color: white;
+}
+
+
+
+
+
+
+

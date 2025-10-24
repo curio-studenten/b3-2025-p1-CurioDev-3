@@ -10,7 +10,7 @@
 <header>
     <div class="wrapper">
         <nav>
-            <a href="../index.php">Home</a>
+
             <a href="index.php">Takenoverzicht</a>
         </nav>
     </div>
@@ -22,16 +22,6 @@
     <div class="form-group">
         <label for="titel">title</label>
         <input type="text" name="titel">
-    </div>
-
-     <div class="form-group">
-        <label for="user">user</label>
-        <input type="text" name="user">
-    </div>
-
-    <div class="form-group">
-        <label for="created_at">created at</label>
-        <input type="datetime-local" name="created_at">
     </div>
 
      <div class="form-group">

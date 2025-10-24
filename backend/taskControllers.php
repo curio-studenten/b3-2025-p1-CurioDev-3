@@ -33,10 +33,6 @@ if(empty($status)){
     $errors[]="status cannot be empty";
 }
 
-$user=$_POST['user'];
-if(!is_numeric($user)){
-    $errors[]="user has to have an numeric value.";
-}
 
 if(isset($errors))
 {
@@ -51,7 +47,7 @@ if(!empty($errors)){
 
   require_once '../backend/conn.php';
 
-  $query = "INSERT INTO taken ( titel, beschrijving, afdeling, status, deadline, user, created_at) VALUES ( :titel, :beschrijving, :afdeling, :status, :deadline, :user, :created_at)";
+  $query = "INSERT INTO taken ( titel, beschrijving, afdeling, status, deadline) VALUES ( :titel, :beschrijving, :afdeling, :status, :deadline)";
 
   $statement = $conn->prepare($query);
 
@@ -61,8 +57,6 @@ if(!empty($errors)){
          ":afdeling" => $afdeling,
          ":status" => $status,
          ":deadline" => $deadline,
-         ":user" => $user,
-         ":created_at" => $created_at
     ]);
 
     header("location: ../index.php?msg=Meldingopgeslagen ");
@@ -79,8 +73,6 @@ if($action == "edit")
     $afdeling = $_POST['afdeling'];
     $status= $_POST['status'];
     $deadline = $_POST['deadline'];
-    $user = $_POST['user'];
-    $created_at = $_POST['created_at'];
 
     
     //Haal variabelen op, doe inputvalidatie
@@ -105,10 +97,6 @@ if($action == "edit")
         $errors[]="status cannot be empty";
     }
 
-    $user=$_POST['user'];
-    if(!is_numeric($user)){
-        $errors[]="user has to have an numeric value.";
-    }
 
     if(isset($errors))
     {
@@ -126,7 +114,7 @@ if($action == "edit")
     require_once '../backend/conn.php';
 
     //2. Schrijf query met placeholders
-    $query = "UPDATE taken SET titel = :titel, beschrijving = :beschrijving, afdeling = :afdeling, satus = :status, deadline = :deadline, user = :user, created_at = :created_at WHERE id = :id";
+    $query = "UPDATE taken SET titel = :titel, beschrijving = :beschrijving, afdeling = :afdeling, status = :status, deadline = :deadline, WHERE id = :id";
     
     //3. Zet query om naar statement
     $statement = $conn->prepare($query);
@@ -138,8 +126,6 @@ if($action == "edit")
          ":afdeling" => $afdeling,
          ":status" => $status,
          ":deadline" => $deadline,
-         ":user" => $user,
-         ":created_at" => $created_at,
          ":id" => $id
     ]);
 
@@ -147,7 +133,7 @@ if($action == "edit")
 
     //Stuur gebruiker terug naar lijst met berichten (index.php in hoofdmap)
     //...
-    header("location: ../index.php?Taak=opgeslagen");
+    header("location: ../index.php?taak=opgeslagen");
     exit();
 }
 
