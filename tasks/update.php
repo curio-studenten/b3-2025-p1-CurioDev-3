@@ -10,6 +10,7 @@
         <header>
             <nav>
             <a href="index.php">Takenoverzicht</a>
+            <a href="../home.php">Home</a>
             </nav>
         </header>
     

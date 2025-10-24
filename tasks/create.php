@@ -5,13 +5,14 @@
     <title></title>
     <?php require_once '../head.php'; ?>
     <link rel="stylesheet" href="css/style.css">
-    <?php require_once '../head.php'; ?>
+        <?php require_once '../head.php'; ?>
 </head>
 
 <header>
     <div class="wrapper">
         <nav>
             <a href="index.php">Takenoverzicht</a>
+            <a href="../home.php">Home</a>
         </nav>
     </div>
 </header>
