@@ -9,8 +9,8 @@
 <body>
     <header>
         <nav>
-            <a href="tasks/index.php">Takenoverzicht</a>
             <a href="home.php">Home</a>
+            <a href="tasks/index.php">Takenoverzicht</a>
         </nav>
     </header>
 </body>
