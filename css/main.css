@@ -111,6 +111,14 @@ label{
     width: 600px;
 }
 
+form input[type="submit"]{
+  background:none;
+  border:none;
+  color:blue;
+  text-decoration:underline;
+  cursor:pointer;
+  padding:0;
+}
 
 
 

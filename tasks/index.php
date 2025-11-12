@@ -28,6 +28,9 @@
         $statement->execute();
         $taken = $statement->fetchAll(PDO::FETCH_ASSOC);
 
+        $deadlines = array_column($taken, 'deadline');
+
+        array_multisort($deadlines, SORT_ASC, $taken);
         ?> 
         <table>
             <tr>
@@ -50,7 +53,13 @@
             <td> <?php echo $taak['status']; ?></td>
             <td> <?php echo $taak['deadline']; ?></td>
             <td><a href="../tasks/update.php?id=<?php echo $taak['id']; ?>">Update</a></td>
-            <td><a href="../tasks/delete.php?id=<?php echo $taak['id']; ?>">delete</a></td>
+            <td><form action="../backend/taskControllers.php" method="POST" style="display:inline;">
+            <input type="hidden" name="action" value="delete">
+            <input type="hidden" name="id" value="<?php echo $taak['id']; ?>">
+            <input type="submit" value="Verwijder bericht" onclick="return confirm('weet je het zeker?')">
+            </form>
+
+            </td>
 
            
             </tr>
