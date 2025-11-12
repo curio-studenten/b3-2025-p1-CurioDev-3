@@ -28,6 +28,9 @@
         $statement->execute();
         $taken = $statement->fetchAll(PDO::FETCH_ASSOC);
 
+        $deadlines = array_column($taken, 'deadline');
+
+        array_multisort($deadlines, SORT_ASC, $taken);
         ?> 
         <table>
             <tr>
