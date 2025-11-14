@@ -10,8 +10,6 @@ $beschrijving= $_POST['beschrijving'];
 $afdeling = $_POST['afdeling'];
 $status= $_POST['status'];
 $deadline = $_POST['deadline'];
-$user = $_POST['user'];
-$created_at = $_POST['created_at'];
 
 $titel=$_POST['titel'];
 if(empty($titel)){
@@ -30,7 +28,7 @@ if(empty($afdeling)){
 
 $status=$_POST['status'];
 if(empty($status)){
-    $errors[]="status cannot be empty";
+    $status = 'todo';
 }
 
 
