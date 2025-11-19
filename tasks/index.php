@@ -6,15 +6,8 @@
     <title></title>
     <?php require_once '../head.php'; ?> 
 </head>
-<header>
-    <div class="wrapper">
-        <nav>
-            <a href="../home.php">Home</a>
-            <a href="index.php">Takenoverzicht</a>
-            
-        </nav>
-    </div>
-</header>
+
+    <?php require_once '../header.php' ?>
 
 <body>
     
@@ -56,7 +49,6 @@
             <td><form action="../backend/taskControllers.php" method="POST" style="display:inline;">
             <input type="hidden" name="action" value="delete">
             <input type="hidden" name="id" value="<?php echo $taak['id']; ?>">
-            <input type="submit" value="Verwijder bericht" onclick="return confirm('weet je het zeker?')">
             </form>
 
             </td>

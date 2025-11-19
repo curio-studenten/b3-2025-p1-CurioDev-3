@@ -7,17 +7,11 @@
     <?php require_once 'head.php'; ?> <!-- Laadt o.a. CSS -->
 </head>
 <body>
-    <header>
-        <!-- Logo in de header -->
-        <img src="images/logo.png" alt="Logo van het Pretpark" class="logo">
-    </header>
+    <?php require_once 'header.php' ?>
 
     <main>
         <h1>Welkom bij de Pretpark Webapp</h1>
         <p>Beheer eenvoudig alle taken van het pretpark.</p>
-
-        <!-- Link naar het takenoverzicht -->
-        <a href="tasks/index.php" class="btn">Ga naar takenoverzicht</a>
     </main>
 </body>
 </html>

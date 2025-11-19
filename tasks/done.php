@@ -7,12 +7,9 @@
     <?php require_once '../head.php'; ?>
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="../home.php">Home</a>
-            <a href="index.php">Takenoverzicht</a>
-        </nav>
-    </header>
+    
+    <?php require_once '../header.php' ?>
+
     <h1>Here are all the DONE tasks</h1>
     <?php 
         require_once '../backend/conn.php';

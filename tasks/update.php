@@ -7,12 +7,6 @@
         <?php require_once '../head.php'; ?>
 </head>
 <body>
-        <header>
-            <nav>
-            <a href="index.php">Takenoverzicht</a>
-            <a href="../home.php">Home</a>
-            </nav>
-        </header>
     
         <?php
 
@@ -59,7 +53,9 @@
     
     <div class="form-group">
        
-        <input type="submit" value="submit">
+        <button type="submit" name="action" value="update">Melding Opslaan</button>
+        <button type="submit" name="action" value="cancel" onclick="return">Annuleren</button>
+        <button type="submit" name="action" value="delete" onclick="return confirm('Weet je zeker dat je dit bericht wilt verwijderen?');">Verwijder bericht</button>
     </div>
     </form>
 </body>
