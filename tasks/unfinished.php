@@ -13,11 +13,11 @@
             <a href="index.php">Takenoverzicht</a>
         </nav>
     </header>
-    <h1>Here are all the DONE tasks</h1>
+    <h1>Here are all the UNFINISHED tasks</h1>
     <?php 
         require_once '../backend/conn.php';
 
-        $query = "SELECT * FROM taken where status = 'done' ";
+        $query = "SELECT * FROM taken where status = 'unfinished' ";
 
         $statement = $conn->prepare($query);
         $statement->execute();
@@ -32,19 +32,15 @@
             <tr>
 
                 <th>Titel</th>
-                <th>Description</th>
                 <th>Department</th>
                 <th>Status</th>
-                <th>deadline</th>
             </tr>
             <?php foreach($taken as $taak):   ?>
                 <tr>
 
             <td> <?php echo $taak['titel']; ?></td>
-            <td> <?php echo $taak['beschrijving']; ?></td>
             <td> <?php echo $taak['afdeling']; ?></td>
             <td> <?php echo $taak['status']; ?></td>
-            <td> <?php echo $taak['deadline']; ?></td>
             </tr>
             <?php endforeach; ?>
         </table>
