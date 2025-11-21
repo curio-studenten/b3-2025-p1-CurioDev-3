@@ -8,7 +8,6 @@ if($action == "insert")
 $titel = $_POST['titel'];
 $beschrijving= $_POST['beschrijving'];
 $afdeling = $_POST['afdeling'];
-$status= $_POST['status'];
 $deadline = $_POST['deadline'];
 
 $titel=$_POST['titel'];
@@ -26,11 +25,10 @@ if(empty($afdeling)){
     $errors[]="department cannot be empty";
 }
 
-$status=$_POST['status'];
-if(empty($status)){
-    $status = 'todo';
+$deadline=$_POST['deadline'];
+if(empty($titel)){
+    $errors[]="Date cannot be empty";
 }
-
 
 if(isset($errors))
 {
@@ -45,16 +43,15 @@ if(!empty($errors)){
 
   require_once  __DIR__ . '/../backend/conn.php';
 
-  $query = "INSERT INTO taken ( titel, beschrijving, afdeling, status, deadline) VALUES ( :titel, :beschrijving, :afdeling, :status, :deadline)";
+  $query = "INSERT INTO taken ( titel, beschrijving, afdeling, deadline) VALUES ( :titel, :beschrijving, :afdeling, :deadline)";
 
   $statement = $conn->prepare($query);
 
      $statement->execute([
-         ":titel" => $titel,
+        ":titel" => $titel,
         ":beschrijving" => $beschrijving,
-         ":afdeling" => $afdeling,
-         ":status" => $status,
-         ":deadline" => $deadline,
+        ":afdeling" => $afdeling,
+        ":deadline" => $deadline,
     ]);
 
     header("location: ../tasks/index.php");

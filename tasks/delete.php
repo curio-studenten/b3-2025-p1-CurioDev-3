@@ -4,21 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-        <?php require_once  __DIR__ . '/../head.php'; ?>
+        <?php require_once  __DIR__ . '../head.php'; ?>
 </head>
 <body>
-        <header>
-            <nav>
-                <a href="/../home.php">Home</a>
-                <a href="index.php">Takenoverzicht</a>
-            </nav>
-        </header>
+        <?php require_once '../header.php'; ?>
     
         <?php
 
         $id = $_GET['id'];
 
-        require_once  __DIR__ . '/backend/conn.php';
+        require_once  __DIR__ . '/../backend/conn.php';
         $query = "SELECT * FROM taken WHERE id = :id";
         $statement = $conn->prepare($query);
         $statement->execute(["id" => $id]);

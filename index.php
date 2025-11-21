@@ -9,11 +9,11 @@ ini_set('display_errors', 1);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homepage | Pretpark Webapp</title>
-    <?php require_once  __DIR__ . '/head.php'; ?> <!-- Laadt o.a. CSS -->
+    <?php require_once 'head.php'; ?> <!-- Laadt o.a. CSS -->
 </head>
 
 <body>
-    <?php  require_once  __DIR__ . '/header.php' ?>
+    <?php  require_once 'header.php' ?>
 
     <div class="wrapper">
         <div class="h1_homepage">

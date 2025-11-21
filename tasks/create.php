@@ -38,8 +38,8 @@
     </div>
     
     <div class="form-group">
-       
         <input type="submit" value="submit">
+        <a class="discard_btn" href="index.php" class="cancel">Annuleren</a>
     </div>
     </form>
     
