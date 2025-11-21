@@ -4,15 +4,12 @@ SET time_zone = "+00:00";
 --
 -- Database: `takenlijst`
 --
-DROP DATABASE IF EXISTS `takenlijst`;
-CREATE DATABASE IF NOT EXISTS `takenlijst` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `takenlijst`;
 
 --
 -- Tabel: `taken`
 --
 
-DROP TABLE IF EXISTS `taken`;
+
 CREATE TABLE IF NOT EXISTS `taken` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `titel` varchar(255) NOT NULL,
@@ -25,7 +22,7 @@ CREATE TABLE IF NOT EXISTS `taken` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
 
-DROP TABLE IF EXISTS `users`;
+
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `naam` varchar(255) NOT NULL,

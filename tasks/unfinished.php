@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <?php require_once '../head.php'; ?>
+    <?php require_once  __DIR__ . '/../head.php'; ?>
 </head>
 <body>
 
-    <?php require_once '../header.php' ?>
+    <?php require_once  __DIR__ . '/../header.php' ?>
     
     <h1>Here are all the UNFINISHED tasks</h1>
     <?php 
-        require_once '../backend/conn.php';
+        require_once  __DIR__ . '/backend/conn.php';
 
         $query = "SELECT * FROM taken where status = 'unfinished' ";
 

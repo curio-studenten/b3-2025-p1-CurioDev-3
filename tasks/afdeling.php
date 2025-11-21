@@ -4,30 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <?php require_once '../head.php'; ?>
+    <?php require_once  __DIR__ . '/../head.php'; ?>
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="../home.php">Home</a>
-            <a href="index.php">Takenoverzicht</a>
-        </nav>
-    </header>
+    <?php require_once  __DIR__ . '/../header.php' ?>
+
     <h1>Here are all the DONE tasks</h1>
     <?php 
-        require_once '../backend/conn.php';
+        require_once  __DIR__ . '/backend/conn.php';
+        $afdeling = $_GET['afdeling'];
 
-        $query = "SELECT * FROM taken where status = 'done' ";
+        $query = "SELECT * FROM taken WHERE afdeling = '$afdeling'";
 
         $statement = $conn->prepare($query);
         $statement->execute();
+
         $taken = $statement->fetchAll(PDO::FETCH_ASSOC);
-
-        $deadlines = array_column($taken, 'deadline');
-
-        array_multisort($deadlines, SORT_ASC, $taken);
-
-        ?> 
+        ?>
         <table>
             <tr>
 

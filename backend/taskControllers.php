@@ -43,7 +43,7 @@ if(!empty($errors)){
     die();
 }
 
-  require_once '../backend/conn.php';
+  require_once  __DIR__ . '/../backend/conn.php';
 
   $query = "INSERT INTO taken ( titel, beschrijving, afdeling, status, deadline) VALUES ( :titel, :beschrijving, :afdeling, :status, :deadline)";
 
@@ -76,7 +76,7 @@ if($action == "update")
     
    
 
-    require_once '../backend/conn.php';
+    require_once  __DIR__ . '/../backend/conn.php';
 
     $query = "UPDATE taken SET titel = :titel, beschrijving = :beschrijving, afdeling = :afdeling, status = :status, deadline = :deadline WHERE id = :id";
     
@@ -107,7 +107,7 @@ if ($action == "delete") {
         die("Geen id opgegeven om te verwijderen.");
     }
 
-    require_once 'conn.php';
+    require_once   __DIR__ . '/conn.php';
 
     $query = "DELETE FROM taken WHERE id = :id";
     $statement = $conn->prepare($query);
