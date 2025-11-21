@@ -26,6 +26,14 @@
 
         array_multisort($deadlines, SORT_ASC, $taken);
         ?> 
+            <div class="takenoverzicht-links">
+                <a class="takenoverzicht-link" href="../tasks/done.php">> Klik hier om de Done page te bezoeken</a>
+                <a class="takenoverzicht-link" href="../tasks/create.php">> Klik hier om een taak aan te maken</a>
+                <a class="takenoverzicht-link" href="../tasks/unfinished.php">> Klik hier om de unfinished tasks te zien</a>
+            </div>
+        
+
+
         <table>
             <tr>
 
@@ -46,22 +54,19 @@
             <td> <?php echo $taak['afdeling']; ?></td>
             <td> <?php echo $taak['status']; ?></td>
             <td> <?php echo $taak['deadline']; ?></td>
-            <td><a href="../tasks/update.php?id=<?php echo $taak['id']; ?>">Update</a></td>
-            <td><form action="../backend/taskControllers.php" method="POST" style="display:inline;">
-            <input type="hidden" name="action" value="delete">
+            <td><a class="update-btn" href="../tasks/update.php?id=<?php echo $taak['id']; ?>">Update</a></td>
+            <td><form action="../backend/taskControllers.php" method="POST">
             <input type="hidden" name="id" value="<?php echo $taak['id']; ?>">
-            <input type="submit" name="action" value="delete" onclick="return confirm('Weet je zeker dat je dit bericht wilt verwijderen?');"></input>
+            <input type="submit" class="delete-btn" name="action" value="delete" onclick="return confirm('Weet je zeker dat je dit bericht wilt verwijderen?');"></input>
 
             </form>
-
+            delete
             </td>
 
            
             </tr>
             <?php endforeach; ?>
         </table>
-        <a href="../tasks/done.php">Done</a>
-        <a href="../tasks/create.php">Create</a>
-         <a href="../tasks/unfinished.php">unfinished</a>
+        
 </body>
 </html>

@@ -10,18 +10,24 @@
     <?php require_once '../header.php' ?>
 
 <body>
+<div class="login-h2">
+    <h2>Inloggen</h2>
+</div>
 
-<h2>Inloggen</h2>
+<div class="login-container">
+    <div class="login-form">
+        <form action="../backend/loginController.php" method="POST">
+            <label for="username">Gebruikersnaam:</label>
+            <input type="text" name="username" required><br><br>
 
-<form action="../backend/loginController.php" method="POST">
-    <label for="username">Gebruikersnaam:</label>
-    <input type="text" name="username" required><br><br>
+            <label for="password">Wachtwoord:</label>
+            <input type="password" name="password" required><br><br>
 
-    <label for="password">Wachtwoord:</label>
-    <input type="password" name="password" required><br><br>
+            <button type="submit" href="index.php">Inloggen</button>
+        </form>
+    </div>
+</div>
 
-    <button type="submit" href="index.php">Inloggen</button>
-</form>
 
 <?php  
 if (isset($_GET['error'])) {

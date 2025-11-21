@@ -311,7 +311,7 @@ table{
 th {
   background-color: #363636;
   color: white;
-  padding: 5px 15px 5px 15px; 
+  padding: 5px 15px 5px 15px;
 }
 
 td{
@@ -381,4 +381,47 @@ body{
 .h1_homepage{
   color: rgb(255, 255, 255);
   text-shadow: 3px 3px 8px rgba(0, 0, 0, 1);
+}
+
+.login-form{
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.login-h2{
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.login-container{
+  
+}
+
+.terug-takenoverzicht{
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  text-shadow: 3px 3px 8px rgb(143, 133, 133);
+}
+
+.takenoverzicht-links{
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 10px;
+  width: 20%;
+}
+
+.takenoverzicht-link{
+  color: rgb(0, 0, 0);
+  text-shadow: 3px 3px 8px rgb(143, 133, 133);
+}
+
+.update-btn{
+  color: white;
+}
+
+.delete-btn{
+  color: white;
 }

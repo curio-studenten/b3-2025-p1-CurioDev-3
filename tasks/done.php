@@ -25,6 +25,9 @@
         array_multisort($deadlines, SORT_ASC, $taken);
 
         ?> 
+
+        <a class="terug-takenoverzicht" href="index.php">Terug naar het Takenoverzicht</a>
+        
         <table>
             <tr>
 

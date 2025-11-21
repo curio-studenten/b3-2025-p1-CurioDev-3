@@ -25,19 +25,26 @@
         array_multisort($deadlines, SORT_ASC, $taken);
 
         ?> 
+
+        <a class="terug-takenoverzicht" href="index.php">Terug naar het Takenoverzicht</a>
+
         <table>
             <tr>
 
                 <th>Titel</th>
+                <th>Description</th>
                 <th>Department</th>
                 <th>Status</th>
+                <th>deadline</th>
             </tr>
             <?php foreach($taken as $taak):   ?>
                 <tr>
 
             <td> <?php echo $taak['titel']; ?></td>
+            <td> <?php echo $taak['beschrijving']; ?></td>
             <td> <?php echo $taak['afdeling']; ?></td>
             <td> <?php echo $taak['status']; ?></td>
+            <td> <?php echo $taak['deadline']; ?></td>
             </tr>
             <?php endforeach; ?>
         </table>
