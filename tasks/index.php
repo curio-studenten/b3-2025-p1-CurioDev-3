@@ -55,7 +55,8 @@ error_reporting(E_ALL)
             <td><form action="../backend/taskControllers.php" method="POST" style="display:inline;">
             <input type="hidden" name="action" value="delete">
             <input type="hidden" name="id" value="<?php echo $taak['id']; ?>">
-            <input type="submit" value="delete">
+            <input type="submit" name="action" value="delete" onclick="return confirm('Weet je zeker dat je dit bericht wilt verwijderen?');"></input>
+
             </form>
 
             </td>
