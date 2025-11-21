@@ -1,32 +1,39 @@
 <?php
+ 
 session_start();
-require 'conn.php';
+ 
+ 
+ 
 $username = $_POST['username'];
 $password = $_POST['password'];
-
-$sql = "SELECT * FROM users WHERE username = ?";
-$stmt = $conn->prepare($sql);
-$stmt->execute([$username]);
-$user = $stmt->fetch(PDO::FETCH_ASSOC);
-
-if (!$user) {
-    header("Location: ../tasks/index.php?error=Gebruiker bestaat niet");
-    exit;
+ 
+require_once 'conn.php';
+ 
+$query = "SELECT * FROM users WHERE username = :username";
+ 
+$statement = $conn->prepare($query);
+ 
+$statement->execute([
+    ":username" => $username
+]);
+ 
+$user = $statement->fetch(PDO::FETCH_ASSOC);
+ 
+if($statement->rowCount() < 1)
+{
+die("Error: account bestaat niet");
 }
-
-if ($password === $user['password']) {
-    $_SESSION['loggedin'] = true;
-    $_SESSION['username'] = $user['username'];
-    $_SESSION['userid'] = $user['id'];
-
-    header("Location: ../home.php");
-    exit;
-} else {
-    header("Location: ../tasks/index.php?error=Verkeerd wachtwoord");
-    exit;
+ 
+if(!password_verify($password, $user['password']))
+{
+die("Error: wachtwoord niet juist!");
 }
-
- header("Location: ../tasks/index.php");
-    exit;
-
+ 
+$_SESSION['user_id'] = $user['id'];
+ 
+ 
+header("Location: ../tasks/index.php");
+ 
+ 
 ?>
+ 

@@ -304,18 +304,20 @@ form input[type="submit"]{
 
 
 table{
-  width:100%;
-  text-align: left;
+  display: flex;
+  justify-content: center;
 }
 
 th {
-  background-color: #213bd0;
+  background-color: #363636;
   color: white;
+  padding: 5px 15px 5px 15px; 
 }
 
 td{
   background-color: #4f547096;
   color: white;
+  padding: 5px 15px 5px 15px;
 }
 
 
