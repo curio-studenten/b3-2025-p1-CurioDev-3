@@ -18,7 +18,7 @@
 
         $id = $_GET['id'];
 
-        require_once  __DIR__ . '/backend/conn.php';
+        require_once  __DIR__ . '/../backend/conn.php';
         $query = "SELECT * FROM taken WHERE id = :id";
         $statement = $conn->prepare($query);
         $statement->execute(["id" => $id]);

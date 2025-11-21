@@ -12,7 +12,7 @@
 
     <h1>Here are all the DONE tasks</h1>
     <?php 
-        require_once  __DIR__ . '/backend/conn.php';
+        require_once  __DIR__ . '/../backend/conn.php';
 
         $query = "SELECT * FROM taken where status = 'done' ";
 

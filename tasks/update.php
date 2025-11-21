@@ -12,7 +12,7 @@
 
         $id = $_GET['id'];
 
-        require_once  __DIR__ . '/backend/conn.php';
+        require_once  __DIR__ . '/../backend/conn.php';
         $query = "SELECT * FROM taken WHERE id = :id";
         $statement = $conn->prepare($query);
         $statement->execute(["id" => $id]);
@@ -66,7 +66,6 @@
        
         <button type="submit" name="action" value="update">Melding Opslaan</button>
         <button type="submit" name="action" value="cancel" onclick="return"></button>
-        <button type="submit" name="action" value="delete" onclick="return confirm('Weet je zeker dat je dit bericht wilt verwijderen?');">Verwijder bericht</button>
     </div>
     </form>
 </body>
